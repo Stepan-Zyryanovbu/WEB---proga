@@ -1,0 +1,27 @@
+body {
+    background-color: lightblue;
+    color: maroon;
+    font-family: Arial;
+    margin: 0px;
+    ;
+}
+main {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #e0e0e0;
+    padding: 10px;
+    text-align: center;
+}
+
+header {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #388e3c;
+}
