@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зырянов Степан Павлович. Офрмление текста</title>
+    <link rel="stylesheet" href="../main.css">
+    <style>
+        .citation {
+            border: 1px solid red;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 10px 10px 5px #0002;
+            background: linear-gradient(to right top, red, orange, yellow, green, rgb(0, 110, 255), blue, purple);
+        }
+        .text {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .author {
+            text-align: left;
+            font-size: 30px;
+            opacity: 0.8;
+            margin-top: 30px;
+            margin-left: 50%;
+        }
+        .citation2 {
+            border: 1px solid red;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 10px 10px 5px #0002;
+            background: linear-gradient(to right top, rgb(131, 96, 96), orange, yellow, rgb(59, 168, 59));
+        }
+        .text2 {
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .author2 {
+            text-align: left;
+            font-size: 30px;
+            opacity: 1;
+            margin-top: 30px;
+            margin-left: 50%;
+        }
+        .citation3 {
+            border: 1px solid red;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 10px 10px 5px #0002;
+            background: linear-gradient(to right, purple, rgb(119, 95, 119));
+        }
+        .text3 {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .author3 {
+            text-align: left;
+            font-size: 30px;
+            opacity: 1;
+            margin-top: 30px;
+            margin-left: 50%;
+        }
+        .citation4 {
+            border: 1px solid rgb(255, 0, 140);
+            padding: 40px;
+            border-radius: 40px;
+            margin: 25px;
+            box-shadow: 10px 10px 5px #0002;
+            background: linear-gradient(to left, purple, rgb(95, 117, 119));
+        }
+        .text4 {
+            color: azure;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .author4 {
+            text-align: left;
+            font-size: 30px;
+            opacity: 1;
+            margin-top: 30px;
+            margin-left: 50%;
+        }
+        .citation5 {
+            border: 1px solid rgb(145, 255, 0);
+            padding: 40px;
+            border-radius: 450px;
+            margin: 55px;
+            box-shadow: 10px 10px 5px #0002;
+            background: linear-gradient(to left, rgb(9, 6, 51), rgb(95, 117, 119));
+        }
+        .text5 {
+            color: pink;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .author5 {
+            color: pink;
+            text-align: left;
+            font-size: 100px;
+            opacity: 1;
+            margin-top: 100px;
+            margin-left: 25%;
+        }
+        .citation6 {
+            border: 1px solid rgb(145, 255, 0);
+            padding: 40px;
+            border-radius: 450px;
+            margin: 55px;
+            box-shadow: 10px 10px 5px #0002;
+            background: linear-gradient(to top, rgb(9, 6, 51), rgb(119, 95, 101));
+        }
+        .text6 {
+            color: rgb(107, 28, 41);
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .author6 {
+            color: rgb(156, 65, 80);
+            text-align: center;
+            font-size: 139px;
+            opacity: 1;
+            margin-top: 100px;
+            margin-left: 25%;
+        }
+        .citation7 {
+            border: 5px solid rgb(255, 0, 43);
+            padding: 30px;
+            border-radius: 50px;
+            margin: 5px;
+            box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.133);
+            background: color(srgb red green blue);
+        }
+        .text7 {
+            color: rgb(107, 28, 41);
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .author7 {
+            color: rgb(156, 65, 80);
+            text-align: center;
+            font-size: 139px;
+            opacity: 1;
+            margin-top: 100px;
+            margin-left: 25%;
+        }
+        .citation8 {
+            border: 90px solid rgb(0, 225, 255);
+            padding: 30px;
+            border-radius: 50px;
+            margin: 5px;
+            box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.133);
+            background: color fuchsia;
+        }
+        .text8 {
+            color: rgb(107, 28, 41);
+            font-size: 30px;
+            font-weight: bold;
+            text-align: left;
+        }
+        .author8 {
+            color: rgb(156, 65, 80);
+            text-align: right;
+            font-size: 139px;
+            opacity: 1;
+            margin-top: 100px;
+            margin-left: 25%;
+        }
+        .citation9 {
+            border: 9px solid rgb(0, 225, 255);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 5px;
+            box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.133);
+            background: color fuchsia;
+        }
+        .text9 {
+            color: rgb(201, 89, 108);
+            font-size: 30px;
+            font-weight: bold;
+            text-align: left;
+            text-shadow: 2px 2px 4px rgba(3,4,4,0.5);
+        }
+        .author9 {
+            color: rgb(122, 102, 105);
+            text-align: left;
+            font-size: 139px;
+            opacity: 1;
+            margin-top: 100px;
+            margin-left: 25%;
+            text-shadow: 2px 2px 4px rgba(3,4,4,0.5);
+        }
+        .citation10 {
+            border: 33px solid rgb(0, 255, 55);
+            padding: 33px;
+            border-radius: 33px;
+            margin: 33px;
+            box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.133);
+            background: color fuchsia;
+        }
+        .text10 {
+            color: rgb(89, 201, 164);
+            font-size: 30px;
+            font-weight: bold;
+            text-align: left;
+            text-shadow: 10px 10px 10px rgba(3,4,4,0.5);
+        }
+        .author10 {
+            color: rgb(122, 102, 105);
+            text-align: left;
+            font-size: 139px;
+            opacity: 1;
+            margin-top: 100px;
+            margin-left: 1%;
+            text-shadow: 2px 2px 4px rgba(3,4,4,0.5);
+        }
+        .citation11 {
+            border: 33px solid rgb(246, 247, 246);
+            padding: 33px;
+            border-radius: 33px;
+            margin: 33px;
+            box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.133);
+            background: color rgb(0, 0, 0);
+        }
+        .text11 {
+            color: rgb(89, 201, 164);
+            font-size: 30px;
+            font-weight: bolder;
+            text-align: right;
+            text-shadow: 10px 10px 10px rgba(3,4,4,0.5);
+        }
+        .author11 {
+            color: rgb(2, 102, 105);
+            text-align: left;
+            font-size: 180px;
+            opacity: 1;
+            margin-top: 100px;
+            margin-left: 25%;
+            text-shadow: 10px 10px 4px rgba(3,4,4,0.5);
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="citation">
+        <div class="text">
+            Стремитесь не к успеху, а к ценностям, которые он дает.
+        </div>
+        <div class="author">
+            Альберт Эйнштейн
+        </div>
+        </div>
+        <div class="citation2">
+            <div class="text2">
+                Жизнь — это то, что с вами происходит, пока вы строите планы.
+            </div>
+            <div class="author2">
+                Джон Леннон
+            </div>
+            </div>
+            <div class="citation3">
+                <div class="text3">
+                    Лучший способ предсказать будущее – создать его.
+                </div>
+                <div class="author3">
+                    Питер Друкер
+                </div>
+                </div>
+                <div class="citation4">
+                    <div class="text4">
+                        Любите жизнь, а не тех, кто живет в ней.
+                    </div>
+                    <div class="author4">
+                        Дэн Миллман
+                    </div>
+                    </div>
+                    <div class="citation5">
+                        <div class="text5">
+                            Только тот, кто рискует, может узнать, насколько далеко можно зайти.
+                        </div>
+                        <div class="author5">
+                            Т. С. Эллиот
+                        </div>
+                        </div>
+                        <div class="citation6">
+                            <div class="text6">
+                                Счастье – это не что-то готовое. Оно происходит от ваших действий.
+                            </div>
+                            <div class="author6">
+                                Далай Лама
+                            </div>
+                            </div>
+                            <div class="citation7">
+                                <div class="text7">
+                                    Истина в конце концов не боится времени и будет открыта.
+                                </div>
+                                <div class="author7">
+                                    Шекспир
+                                </div>
+                                </div>
+                                <div class="citation8">
+                                    <div class="text8">
+                                        Успех – это способность идти от неудачи к неудаче, не теряя энтузиазма.
+                                    </div>
+                                    <div class="author8">
+                                        Уинстон Черчилль
+                                    </div>
+                                    </div>
+                                    <div class="citation9">
+                                        <div class="text9">
+                                            Самое важное – это видеть, что невидимо для других.
+                                        </div>
+                                        <div class="author9">
+                                            Роберт Грин
+                                        </div>
+                                        </div>
+                                        <div class="citation10">
+                                            <div class="text10">
+                                                Чтобы изменить мир, начните с себя.
+                                            </div>
+                                            <div class="author10">
+                                                Махатма Ганди
+                                            </div>
+                                            </div>
+                                            <div class="citation11">
+                                                <div class="text11">
+                                                    Лучший способ завершить что-то – начать делать это.
+                                                </div>
+                                                <div class="author11">
+                                                    Джим Моррон
+                                                </div>
+                                                </div>
+    </main>
+    <footer></footer>
+</body>
+</html>
