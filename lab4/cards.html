@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card {
+            width: 250px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+        .card p {
+            font-size: 1em;
+            color: #666666;
+        }
+        .cloud {
+            position: absolute;
+            background-color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .card:hover .cloud {
+            opacity: 1;
+        }
+        /* Adjust cloud positions as needed */
+        .cloud:nth-child(odd) {
+            top: 10px;
+        }
+        .cloud:nth-child(even) {
+            bottom: 10px;
+        }
+        .cloud:nth-child(1), .cloud:nth-child(2) {
+            left: 10px;
+        }
+        .cloud:nth-child(3), .cloud:nth-child(4) {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="4f1702f4b7c2ba37848cf37f70fb7f5e.jpg" alt="Infiniti G35 Coupe">
+            <h2>Infiniti G35 Coupe</h2>
+            <p>Почувствуйте острые ощущения от вождения нашего роскошного спортивного автомобиля. Беспрецедентная производительность и стиль.</p>
+            <div class="cloud">Cloud Content 1</div>
+        </div>
+        <div class="card">
+            <img src="89b372c64b5457210bad1318c99216ce.jpg" alt="Infiniti G35 Coupe">
+            <h2>Infiniti G35 Coupe</h2>
+            <p>Исследуйте новые горизонты в водительском мастерстве нашего премиального спортивного автомобиля. Отличная производительность и стиль.</p>
+            <div class="cloud">Cloud Content 2</div>
+        </div>
+        <div class="card">
+            <img src="1692842082_myskillsconnect-com-p-infiniti-dzhi-35-foto-16.jpg" alt="Infiniti G35 Coupe">
+            <h2>Infiniti G35 Coupe</h2>
+            <p>Ощутите адреналин и насладитесь мощью нашего роскошного спортивного автомобиля. Непревзойденная производительность и стиль.</p>
+            <div class="cloud">Cloud Content 3</div>
+        </div>
+        <div class="card">
+            <img src="900337_infiniti-g35-wallpapers-hd-download_1600x1200_h.jpg" alt="Infiniti G35 Coupe">
+            <h2>Infiniti G35 Coupe</h2>
+            <p>Погрузитесь в мир роскоши и мощи с нашим спортивным автомобилем. Непревзойденная производительность и стиль.</p>
+            <div class="cloud">Cloud Content 4</div>
+        </div>
+        <div class="card">
+            <img src="ccd9513a50e7fdfae71606119734cf9f.jpg" alt="Infiniti G35 Coupe">
+            <h2>Infiniti G35 Coupe</h2>
+            <p>Почувствуйте удовольствие от вождения нашего роскошного спортивного автомобиля. Отличная производительность и стиль.</p>
+            <div class="cloud">Cloud Content 5</div>
+        </div>
+        <div class="card">
+            <img src="fonstola.ru_118592.jpg" alt="Infiniti G35 Coupe">
+            <h2>Infiniti G35 Coupe</h2>
+            <p>Ощутите свободу и мощь нашего спортивного автомобиля. Непревзойденная производительность и стиль.</p>
+            <div class="cloud">Cloud Content 6</div>
+        </div>
+        <div class="card">
+            <img src="Tolo7513-015.jpg" alt="Infiniti G35 Coupe">
+            <h2>Infiniti G35 Coupe</h2>
+            <p>Исследуйте дорогу с нашим роскошным спортивным автомобилем. Отличная производительность и стиль.</p>
+            <div class="cloud">Cloud Content 7</div>
+        </div>
+        <div class="card">
+            <img src="5b02d3ca1780bf01690a888449c58412.jpg" alt="Infiniti G35 Coupe">
+            <h2>Infiniti G35 Coupe</h2>
+            <p>Наши спортивные автомобили сочетают в себе мощь и элегантность. Отличная производительность и стиль.</p>
+            <div class="cloud">Cloud Content 8</div>
+        </div>
+    </div>
+</body>
+</html>
