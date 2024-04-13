@@ -46,3 +46,18 @@ a:active {
     color: black;
     opacity: 0.3;
 }
+div.menu {
+    border: 7px solid #00880080;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+}div.menu:hover {
+    color: red;
+    text-decoration: underline;
+    text-shadow: #f9f9f9;
+    background-color: aqua;
+    transition: 0.3s;
+    }
+    div.tt {
+        margin: 0 auto;
+    }
