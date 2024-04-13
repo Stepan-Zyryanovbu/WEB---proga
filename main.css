@@ -23,5 +23,20 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
-    border-bottom: 2px solid #388e3c;
+    border-bottom: 2px solid #388e3c;}
+a:link {
+    color: #388e3c;
+}
+a:visited{
+    color: burlywood;
+}
+a:hover {
+color: red;
+text-decoration: underline;
+text-shadow: #f9f9f9;
+background-color: aqua;
+}
+a:active {
+    color: black;
+    opacity: 0.3;
 }
