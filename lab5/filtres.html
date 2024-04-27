@@ -50,6 +50,12 @@
             document.getElementById('saturateOutput').innerText = value + '%';
             document.getElementById('saturateImage').style.filter = 'saturate(' + value + '%)';
         }
+
+        function sepiaChange() {
+            let value = document.getElementById('sepiaValue').value;
+            document.getElementById('sepiaOutput').innerText = value + '%';
+            document.getElementById('sepiaImage').style.filter = 'sepia(' + value + '%)';
+        }
     </script>
 </head>
 <body>
@@ -97,6 +103,12 @@
             <span id="saturateOutput"></span>
         </div>
         <div><img src="74bc4fdae1d127b72386909d0853a923.jpeg" id="saturateImage"></div>
+        <div>
+            Сепия:
+            <input type="range" min="0" max="100" value="0" onchange="sepiaChange()" id="sepiaValue">
+            <span id="sepiaOutput"></span>
+        </div>
+        <div><img src="74bc4fdae1d127b72386909d0853a923.jpeg" id="sepiaImage"></div>
     <footer>&copy; Зырянов Степан Павлович, ФБИ-24, 2 курс, 2024</footer>
 </body>
 </html>
