@@ -20,6 +20,12 @@
             document.getElementById('brightnessOutput').innerText = value + '%';
             document.getElementById('brightnessImage').style.filter = 'brightness(' + value + '%)';
         }
+
+        function contrastChange() {
+            let value = document.getElementById('contrastValue').value;
+            document.getElementById('contrastOutput').innerText = value + '%';
+            document.getElementById('contrastImage').style.filter = 'contrast(' + value + '%)';
+        }
     </script>
 </head>
 <body>
@@ -37,6 +43,12 @@
             <span id="brightnessOutput"></span>
         </div>
         <div><img src="74bc4fdae1d127b72386909d0853a923.jpeg" id="brightnessImage"></div>
+        <div>
+            Контраст:
+            <input type="range" min="0" max="500" value="100" onchange="contrastChange()" id="contrastValue">
+            <span id="contrastOutput"></span>
+        </div>
+        <div><img src="74bc4fdae1d127b72386909d0853a923.jpeg" id="contrastImage"></div>
     <footer>&copy; Зырянов Степан Павлович, ФБИ-24, 2 курс, 2024</footer>
 </body>
 </html>
