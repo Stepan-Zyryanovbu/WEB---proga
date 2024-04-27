@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Круги</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <header onclick="showAuthor()"> НГТУ. Лабораторная работа 5</header>
+    <main>
+        <div class="circle" onclick="hideCircle(this)">1</div>
+        <div class="circle" onclick="hideCircle(this)">2</div>
+        <div class="circle" onclick="hideCircle(this)">3</div>
+        <div class="circle" onclick="hideCircle(this)">4</div>
+        <div class="circle" onclick="hideCircle(this)">5</div>
+        <div class="circle" onclick="hideCircle(this)">6</div>
+        <div class="circle" onclick="hideCircle(this)">7</div>
+        <div class="circle" onclick="hideCircle(this)">8</div>
+        <div class="circle" onclick="hideCircle(this)">9</div>
+        <div class="circle" onclick="hideCircle(this)">10</div>
+    </main>
+    <footer> &copy; Зырянов Степан Павлович, ФБИ-24, 2 курс, 2024</footer>
+
+    <script>
+        let hiddenCircles = [];
+        let colors = ['#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8', '#6610f2', '#6c757d', '#fd7e14', '#20c997', '#343a40'];
+
+        function hideCircle(circle) {
+            hiddenCircles.push(circle);
+            circle.style.width = "0";
+            circle.style.height = "0";
+            circle.style.opacity = "0";
+            setTimeout(function() {
+                circle.style.display = "none";
+            }, 500);
+        }
+
+        function randomizePosition() {
+            let circles = document.querySelectorAll('.circle');
+            circles.forEach(function(circle) {
+                let randomX = Math.floor(Math.random() * (window.innerWidth - 100));
+                let randomY = Math.floor(Math.random() * (window.innerHeight - 100));
+                circle.style.top = randomY + "px";
+                circle.style.left = randomX + "px";
+                circle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                circle.style.display = "block"; // Показываем круг перед изменением позиции
+            });
+        }
+
+        randomizePosition();
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                hiddenCircles.forEach(function(circle) {
+                    circle.style.width = "100px";
+                    circle.style.height = "100px";
+                    circle.style.opacity = "1";
+                    circle.style.display = "block";
+                });
+                hiddenCircles = [];
+                randomizePosition();
+            }
+        });
+    </script>
+</body>
+</html>
