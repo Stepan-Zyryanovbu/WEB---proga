@@ -32,6 +32,12 @@
             document.getElementById('grayscaleOutput').innerText = value + '%';
             document.getElementById('grayscaleImage').style.filter = 'grayscale(' + value + '%)';
         }
+
+        function hueRotateChange() {
+            let value = document.getElementById('hueRotateValue').value;
+            document.getElementById('hueRotateOutput').innerText = value + 'deg';
+            document.getElementById('hueRotateImage').style.filter = 'hue-rotate(' + value + 'deg)';
+        }
     </script>
 </head>
 <body>
@@ -61,6 +67,12 @@
             <span id="grayscaleOutput"></span>
         </div>
         <div><img src="74bc4fdae1d127b72386909d0853a923.jpeg" id="grayscaleImage"></div>
+        <div>
+            Оттенок цвета:
+            <input type="range" min="0" max="360" value="0" onchange="hueRotateChange()" id="hueRotateValue">
+            <span id="hueRotateOutput"></span>
+        </div>
+        <div><img src="74bc4fdae1d127b72386909d0853a923.jpeg" id="hueRotateImage"></div>
     <footer>&copy; Зырянов Степан Павлович, ФБИ-24, 2 курс, 2024</footer>
 </body>
 </html>
