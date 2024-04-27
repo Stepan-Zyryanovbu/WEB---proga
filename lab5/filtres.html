@@ -38,6 +38,12 @@
             document.getElementById('hueRotateOutput').innerText = value + 'deg';
             document.getElementById('hueRotateImage').style.filter = 'hue-rotate(' + value + 'deg)';
         }
+
+        function invertChange() {
+            let value = document.getElementById('invertValue').value;
+            document.getElementById('invertOutput').innerText = value + '%';
+            document.getElementById('invertImage').style.filter = 'invert(' + value + '%)';
+        }
     </script>
 </head>
 <body>
@@ -73,6 +79,12 @@
             <span id="hueRotateOutput"></span>
         </div>
         <div><img src="74bc4fdae1d127b72386909d0853a923.jpeg" id="hueRotateImage"></div>
+        <div>
+            Инвертирование цвета:
+            <input type="range" min="0" max="100" value="0" onchange="invertChange()" id="invertValue">
+            <span id="invertOutput"></span>
+        </div>
+        <div><img src="74bc4fdae1d127b72386909d0853a923.jpeg" id="invertImage"></div>
     <footer>&copy; Зырянов Степан Павлович, ФБИ-24, 2 курс, 2024</footer>
 </body>
 </html>
