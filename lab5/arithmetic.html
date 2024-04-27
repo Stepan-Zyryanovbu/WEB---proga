@@ -12,6 +12,10 @@
             background-color: #f0f0f0; 
             border: 2px solid #333; 
             display: inline-block; 
+            margin: 10px; 
+            text-align: center; 
+            line-height: 100px; 
+            overflow: hidden;
         }
     </style>
     <link rel="stylesheet" href="../main.css">
@@ -23,14 +27,50 @@
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a + b;
-            alert (' Сумма '  + a + ' и ' + b + ' равна ' + result);
-    }
+            alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
+        }
+
+        function showDifference() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a - b;
+            alert('Разность ' + a + ' и ' + b + ' равна ' + result);
+        }
+
+        function showMultiplication() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a * b;
+            alert('Произведение ' + a + ' и ' + b + ' равно ' + result);
+        }
+
+        function showDivision() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            if (b !== 0) {
+                let result = a / b;
+                alert('Деление ' + a + ' на ' + b + ' равно ' + result);
+            } else {
+                alert('На ноль делить нельзя!');
+            }
+        }
+
         function showAuthor() {
             let author = 'Автор страницы:\nЗырянов Степан Павлович';
             alert(author);
         }
+
         function showHi() {
-            let Hi = ' Приветики, добро пожаловать) ';
+            let Hi = 'Приветики, добро пожаловать)';
             alert(Hi);
         }
     </script>
@@ -44,8 +84,10 @@
         <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
         <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
 
-
         <div class="message" onclick="showSum()">Найти сумму чисел</div>
+        <div class="message" onclick="showDifference()">Найти разность чисел</div>
+        <div class="message" onclick="showMultiplication()">Найти произведение чисел</div>
+        <div class="message" onclick="showDivision()">Найти деление чисел</div>
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
     <footer ondblclick="showHi()"> &copy; Зырянов Степан Павлович, ФБИ-24, 2 курс, 2024</footer>
