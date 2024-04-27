@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .product {
+            margin-bottom: 10px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header onclick="showAuthor()"> НГТУ. Лабораторная работа 5</header>
+    <main>
+        <div class="product">
+            <input type="text" value="Огурец" readonly>
+            <input type="number" min="0" value="10" readonly>
+            <input type="number" min="0" placeholder="Количество" value="0">
+            <span class="error" id="error1"></span>
+        </div>
+        <div class="product">
+            <input type="text" value="Помидор" readonly>
+            <input type="number" min="0" value="20" readonly>
+            <input type="number" min="0" placeholder="Количество" value="0">
+            <span class="error" id="error2"></span>
+        </div>
+        <div class="product">
+            <input type="text" value="Перец болгарский" readonly>
+            <input type="number" min="0" value="30" readonly>
+            <input type="number" min="0" placeholder="Количество" value="0">
+            <span class="error" id="error3"></span>
+        </div>
+        <div class="product">
+            <input type="text" value="Перец острый" readonly>
+            <input type="number" min="0" value="35" readonly>
+            <input type="number" min="0" placeholder="Количество" value="0">
+            <span class="error" id="error4"></span>
+        </div>
+        <button onclick="calculateTotal()">Рассчитать</button>
+        <button onclick="clearCart()">Очистить</button>
+        <p id="totalPrice"></p>
+    </main>
+    <footer> &copy; Зырянов Степан Павлович, ФБИ-24, 2 курс, 2024</footer>
+
+    <script>
+        function calculateTotal() {
+            let products = document.querySelectorAll('.product');
+            let total = 0;
+            let error = false;
+
+            products.forEach(function(product, index) {
+                let price = parseFloat(product.querySelector('input[type="number"]').value);
+                let quantity = parseInt(product.querySelectorAll('input[type="number"]')[1].value);
+                if (quantity < 0) {
+                    document.getElementById('error' + (index + 1)).textContent = 'Ошибка: Количество не может быть отрицательным';
+                    error = true;
+                } else {
+                    document.getElementById('error' + (index + 1)).textContent = '';
+                }
+                if (!isNaN(price) && !isNaN(quantity)) {
+                    total += price * quantity;
+                }
+            });
+
+            if (!error) {
+                document.getElementById('totalPrice').textContent = 'Общая сумма к оплате: ' + total.toFixed(2) + ' руб.';
+            } else {
+                document.getElementById('totalPrice').textContent = '';
+            }
+        }
+
+        function clearCart() {
+            let inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(function(input) {
+                if (input.placeholder !== "Количество") {
+                    input.value = input.defaultValue;
+                } else {
+                    input.value = '0';
+                }
+            });
+
+            document.querySelectorAll('.error').forEach(function(error) {
+                error.textContent = '';
+            });
+
+            document.getElementById('totalPrice').textContent = '';
+        }
+
+        function showAuthor() {
+            let author = 'Автор страницы:\nЗырянов Степан Павлович';
+            alert(author);
+        }
+    </script>
+</body>
+</html>
