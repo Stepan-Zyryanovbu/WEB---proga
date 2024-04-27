@@ -16,12 +16,20 @@
     </style>
     <link rel="stylesheet" href="../main.css">
     <script>
-        function showsum() {
+        function showSum() {
             let a = 5154;
             let b = 7891;
             let result = a + b;
             alert (' Сумма '  + a + ' и ' + b + ' равна ' + result);
     }
+        function showAuthor() {
+            let author = 'Автор страницы:\nЗырянов Степан Павлович';
+            alert(author);
+        }
+        function showHi() {
+            let Hi = ' Приветики, добро пожаловать) ';
+            alert(Hi);
+        }
     </script>
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../favicon-16x16.png">
@@ -30,9 +38,9 @@
 <body>
     <header onclick="showAuthor()"> НГТУ. Лабораторная работа 5</header>
     <main>
-        <div class="message" onclick="showsum()">Сколько будет 5154+7891?</div>
-        <div class="message">Узнать, кто автор страницы</div>
+        <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
+        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
     </main>
-    <footer> &copy; Зырянов Степан Павлович, ФБИ-24, 2 курс, 2024</footer>
+    <footer ondblclick="showHi()"> &copy; Зырянов Степан Павлович, ФБИ-24, 2 курс, 2024</footer>
 </body>
 </html>
