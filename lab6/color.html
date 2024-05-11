@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .color-block {
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+            text-align: center;
+            line-height: 200px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .color-block:hover {
+            background-color: lightgray;
+        }
+    </style>
+    <script>
+        let colors = ['yellow', 'red', 'black', 'blue', 'green'];
+        let currentIndex = 0;
+
+        function changeColor(element) {
+            currentIndex = (currentIndex + 1) % colors.length;
+            element.style.backgroundColor = colors[currentIndex];
+            element.textContent = 'Color: ' + colors[currentIndex];
+
+            // Change font color based on background color
+            if (colors[currentIndex] === 'yellow' || colors[currentIndex] === 'lightgray') {
+                element.style.color = 'black';
+            } else {
+                element.style.color = 'white';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        
+    </header>
+
+    <main>
+        <div id="colorBlock" class="color-block" ondblclick="changeColor(this)">Color: yellow</div>
+    </main>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>
