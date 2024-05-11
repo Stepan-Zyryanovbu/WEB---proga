@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина покупок</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="number"] {
+            width: 50px;
+        }
+
+        .warning {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Корзина покупок</h1>
+    </header>
+
+    <main>
+        <form id="cart-form">
+            <label for="balance">Мой баланс:</label>
+            <input type="number" id="balance" min="0"><br><br>
+
+            <table>
+                <tr>
+                    <th>Товар</th>
+                    <th>Цена ($)</th>
+                    <th>Количество</th>
+                </tr>
+                <tr class="item">
+                    <td>Футболка</td>
+                    <td>20</td>
+                    <td><input type="number" name="futbolka" min="0"></td>
+                </tr>
+                <tr class="item">
+                    <td>Поло</td>
+                    <td>30</td>
+                    <td><input type="number" name="polo" min="0"></td>
+                </tr>
+                <tr class="item">
+                    <td>Джинсы</td>
+                    <td>40</td>
+                    <td><input type="number" name="jeans" min="0"></td>
+                </tr>
+                <tr class="item">
+                    <td>Кроссовки</td>
+                    <td>50</td>
+                    <td><input type="number" name="sneakers" min="0"></td>
+                </tr>
+                <tr class="item">
+                    <td>Рубашка</td>
+                    <td>25</td>
+                    <td><input type="number" name="shirt" min="0"></td>
+                </tr>
+                <tr class="item">
+                    <td>Шорты</td>
+                    <td>15</td>
+                    <td><input type="number" name="shorts" min="0"></td>
+                </tr>
+                <tr class="item">
+                    <td>Пиджак</td>
+                    <td>60</td>
+                    <td><input type="number" name="jacket" min="0"></td>
+                </tr>
+            </table>
+
+            <button type="button" onclick="checkout()">OK</button><br>
+            <p id="warning" class="warning"></p>
+        </form>
+
+        <div id="result"></div>
+    </main>
+
+    <footer>
+        
+    </footer>
+
+    <script>
+        function checkout() {
+            let balance = parseInt(document.getElementById('balance').value);
+            let total = 0;
+            let items = document.querySelectorAll('.item input[type="number"]');
+            let message = "";
+            let hasNegativeQuantity = false;
+            let allItemsValid = true; // Флаг, показывающий, что все позиции заполнены
+
+            items.forEach(function(item) {
+                let quantity = parseInt(item.value);
+                if (quantity < 0) {
+                    hasNegativeQuantity = true;
+                } else if (!isNaN(quantity)) {
+                    let price = parseInt(item.parentElement.previousElementSibling.textContent);
+                    total += quantity * price;
+                } else {
+                    quantity = 0; // Присваиваем нулевое значение, если поле пустое
+                }
+            });
+
+            if (!allItemsValid) {
+                message = "Пожалуйста, заполните количество для всех товаров.";
+            } else if (hasNegativeQuantity) {
+                message = "Ошибка: Количество товара не может быть отрицательным.";
+            } else if (total === 0) {
+                message = "Пожалуйста, выберите хотя бы один товар.";
+            } else if (total > balance) {
+                message = "Ошибка: Общая стоимость товаров превышает ваш баланс.";
+            } else {
+                message = "Успешно оформлено! Общая стоимость: $" + total + ".";
+            }
+
+            document.getElementById('result').innerText = message;
+            document.getElementById('warning').innerText = hasNegativeQuantity ? "Количество товара не может быть отрицательным." : "";
+        }
+    </script>
+</body>
+</html>
