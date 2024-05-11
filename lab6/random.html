@@ -10,65 +10,86 @@
     <link rel="icon" href="../favicon-32x32.png">
     <style>
         .game {
-            border: 2px solid #4CAF50; /* Зеленая рамка */
-            border-radius: 15px; /* Более округлые углы */
-            width: 80%; /* Ширина блока 80% от родителя */
-            margin: 20px auto; /* Автоматические внешние отступы для центрирования */
-            padding: 20px; /* Внутренние отступы блока */
-            background-color: #f2f2f2; /* Цвет фона */
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Тень блока */
-            transition: 0.3s; /* Плавное изменение свойств при наведении */
+            border: 2px solid #4CAF50;
+            border-radius: 15px;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
         }
 
         .game:hover {
-            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Увеличенная тень при наведении */
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         }
 
         h1 {
-            color: #4CAF50; /* Зеленый цвет заголовка */
+            color: #4CAF50;
         }
 
         button {
-            background-color: #4CAF50; /* Зеленый цвет фона кнопки */
-            color: white; /* Белый цвет текста кнопки */
-            padding: 10px 20px; /* Внутренние отступы кнопки */
-            text-align: center; /* Выравнивание текста по центру */
-            text-decoration: none; /* Убрать подчеркивание ссылки */
-            display: inline-block; /* Отображать как блочный элемент */
-            font-size: 16px; /* Размер текста */
-            margin-top: 10px; /* Внешний отступ сверху */
-            border: none; /* Убрать границу кнопки */
-            border-radius: 5px; /* Закругленные углы кнопки */
-            cursor: pointer; /* Указатель при наведении */
-            transition: background-color 0.3s; /* Плавное изменение цвета фона при наведении */
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         button:hover {
-            background-color: #45a049; /* Темно-зеленый цвет фона при наведении */
+            background-color: #45a049;
+        }
+
+        .help {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .help button {
+            margin-right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .help button:hover {
+            background-color: #45a049;
         }
     </style>
     <script>
         let number;
         let count = 0;
-        function startGame(){
-            number = Math.floor( Math.random() * 100 ) + 1;
+
+        function startGame() {
+            number = Math.floor(Math.random() * 100) + 1;
             let screens = document.getElementsByClassName('game')
             screens[0].style.display = 'none';
             screens[1].style.display = 'block';
-
         }
+
         function guess() {
             count++
             let input = document.getElementById('user-number');
             let userNumber = parseInt(input.value);
             let message = document.getElementById('result');
-            if(userNumber > number) {
+            if (userNumber > number) {
                 message.innerHTML = 'Вы ввели слишком большое число';
-            }
-            else if (userNumber < number){
+            } else if (userNumber < number) {
                 message.innerHTML = 'Вы ввели слишком маленькое число'
-            }
-            else {
+            } else {
                 let screens = document.getElementsByClassName('game');
                 screens[1].style.display = 'none';
                 screens[2].style.display = 'block';
@@ -76,14 +97,27 @@
                 document.getElementById('try-count').innerHTML = count;
             }
         }
-        function again(params) {
+
+        function again() {
             let screens = document.getElementsByClassName('game');
-            screens[2].style.display = 'none'; // Скрыть третий экран
-            screens[1].style.display = 'block'; // Показать второй экран
-            number = Math.floor(Math.random() * 100) + 1; // Загадать новое число
-            count = 0; // Обнулить число попыток
-            document.getElementById('user-number').value = ''; // Очистить поле ввода
-            document.getElementById('result').innerHTML = ''; // Очистить блок "result"
+            screens[2].style.display = 'none';
+            screens[1].style.display = 'block';
+            number = Math.floor(Math.random() * 100) + 1;
+            count = 0;
+            document.getElementById('user-number').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+
+        function showRules() {
+            document.getElementById('rules').style.display = 'block';
+            document.getElementById('showRulesButton').style.display = 'none';
+            document.getElementById('hideRulesButton').style.display = 'inline-block';
+        }
+
+        function hideRules() {
+            document.getElementById('rules').style.display = 'none';
+            document.getElementById('showRulesButton').style.display = 'inline-block';
+            document.getElementById('hideRulesButton').style.display = 'none';
         }
     </script>
 </head>
@@ -116,6 +150,21 @@
             </div>
             <div>
                 <button onclick="again()">Сыграть еще раз</button>
+            </div>
+        </div>
+
+        <div class="help">
+            <button id="showRulesButton" onclick="showRules()">Показать правила игры</button>
+            <button id="hideRulesButton" style="display: none;" onclick="hideRules()">Скрыть правила игры</button>
+            <div id="rules" style="display: none;">
+                <h2>Правила игры:</h2>
+                <ol>
+                    <li>Попробуйте угадать число от 1 до 100.</li>
+                    <li>Введите свой вариант в поле и нажмите "Угадать".</li>
+                    <li>Если ваше число больше задуманного, вам будет сообщено "Вы ввели слишком большое число".</li>
+                    <li>Если ваше число меньше задуманного, вам будет сообщено "Вы ввели слишком маленькое число".</li>
+                    <li>После успешного угадывания числа вы увидите поздравление и количество попыток.</li>
+                </ol>
             </div>
         </div>
     </main>
