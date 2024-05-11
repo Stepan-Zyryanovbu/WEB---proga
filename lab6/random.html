@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай число!</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .game {
+            border: 2px solid #4CAF50; /* Зеленая рамка */
+            border-radius: 15px; /* Более округлые углы */
+            width: 80%; /* Ширина блока 80% от родителя */
+            margin: 20px auto; /* Автоматические внешние отступы для центрирования */
+            padding: 20px; /* Внутренние отступы блока */
+            background-color: #f2f2f2; /* Цвет фона */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Тень блока */
+            transition: 0.3s; /* Плавное изменение свойств при наведении */
+        }
+
+        .game:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Увеличенная тень при наведении */
+        }
+
+        h1 {
+            color: #4CAF50; /* Зеленый цвет заголовка */
+        }
+
+        button {
+            background-color: #4CAF50; /* Зеленый цвет фона кнопки */
+            color: white; /* Белый цвет текста кнопки */
+            padding: 10px 20px; /* Внутренние отступы кнопки */
+            text-align: center; /* Выравнивание текста по центру */
+            text-decoration: none; /* Убрать подчеркивание ссылки */
+            display: inline-block; /* Отображать как блочный элемент */
+            font-size: 16px; /* Размер текста */
+            margin-top: 10px; /* Внешний отступ сверху */
+            border: none; /* Убрать границу кнопки */
+            border-radius: 5px; /* Закругленные углы кнопки */
+            cursor: pointer; /* Указатель при наведении */
+            transition: background-color 0.3s; /* Плавное изменение цвета фона при наведении */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Темно-зеленый цвет фона при наведении */
+        }
+    </style>
+    <script>
+        let number;
+        let count = 0;
+        function startGame(){
+            number = Math.floor( Math.random() * 100 ) + 1;
+            let screens = document.getElementsByClassName('game')
+            screens[0].style.display = 'none';
+            screens[1].style.display = 'block';
+
+        }
+        function guess() {
+            count++
+            let input = document.getElementById('user-number');
+            let userNumber = parseInt(input.value);
+            let message = document.getElementById('result');
+            if(userNumber > number) {
+                message.innerHTML = 'Вы ввели слишком большое число';
+            }
+            else if (userNumber < number){
+                message.innerHTML = 'Вы ввели слишком маленькое число'
+            }
+            else {
+                let screens = document.getElementsByClassName('game');
+                screens[1].style.display = 'none';
+                screens[2].style.display = 'block';
+                document.getElementById('number').innerHTML = number;
+                document.getElementById('try-count').innerHTML = count;
+            }
+        }
+        function again(params) {
+            let screens = document.getElementsByClassName('game');
+            screens[2].style.display = 'none'; // Скрыть третий экран
+            screens[1].style.display = 'block'; // Показать второй экран
+            number = Math.floor(Math.random() * 100) + 1; // Загадать новое число
+            count = 0; // Обнулить число попыток
+            document.getElementById('user-number').value = ''; // Очистить поле ввода
+            document.getElementById('result').innerHTML = ''; // Очистить блок "result"
+        }
+    </script>
+</head>
+<body>
+    <header>
+        
+    </header>
+
+    <main>
+        <div class="game">
+            <button onclick="startGame()">Сыграть в игру</button>
+        </div>
+        <div class="game" style="display: none;">
+            <h1>Угадай число!</h1>
+            <div>
+                Задумано число от 1 до 100. Угадайте какое?<br>
+                <input type="number" value="" min="1" max="100" id="user-number"><br>
+                <button onclick="guess()">Угадать</button>
+                <div id="result"></div>
+            </div>
+        </div>
+
+        <div class="game" style="display: none;">
+            <h1>Поздравляем, вы выиграли!</h1>
+            <div>
+                Задуманное число: <span id="number"></span>
+            </div>
+            <div>
+                Количество попыток: <span id="try-count"></span>
+            </div>
+            <div>
+                <button onclick="again()">Сыграть еще раз</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>
