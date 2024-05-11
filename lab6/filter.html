@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+</head>
+<script>
+    function filter() {
+        let color = document.getElementById('wear-color').value;
+        let type = document.getElementById('wear-type').value;
+        let wear = document.getElementById('wear');
+
+        let imageName;
+        if(color == 'Красный' && type == 'Футболка') {
+            imageName = 'redfut.jpg';
+        } else if(color == 'Белый' && type == 'Футболка') {
+            imageName = 'whitefut.jpg';
+        } else if(color == 'Чёрный' && type == 'Футболка') {
+            imageName = 'blackfut.jpg';
+        } else if(color == 'Красный' && type == 'Поло') {
+            imageName = 'redpolo.jpg';
+        } else if(color == 'Белый' && type == 'Поло') {
+            imageName = 'whitepolo.jpg';
+        } else if(color == 'Чёрный' && type == 'Поло') {
+            imageName = 'blackpolo.jpg';
+        } else if(color == 'Красный' && type == 'Майка') {
+            imageName = 'redma.jpg';
+        } else if(color == 'Белый' && type == 'Майка') {
+            imageName = 'whitema.jpg';
+        } else if(color == 'Чёрный' && type == 'Майка') {
+            imageName = 'blackma.jpg';
+        }
+
+        wear.src = imageName;
+    }
+</script>
+<body>
+    <header>
+        
+    </header>
+
+    <main>
+        <div>
+            Цвет одежды:
+            <select id="wear-color">
+                <option>Красный</option>
+                <option>Белый</option>
+                <option>Чёрный</option>
+            </select><br>
+
+            Тип одежды:
+            <select id="wear-type">
+                <option>Футболка</option>
+                <option>Поло</option>
+                <option>Майка</option>  
+            </select><br>
+
+            <button onclick="filter()">OK</button><br>
+
+            <img id="wear" style="max-width: 100%; max-height: 100%; width: 50vw; height: auto; object-fit: contain;">
+        </div>
+    </main>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>
