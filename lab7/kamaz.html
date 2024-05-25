@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        button{
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function KamAz(){
+            const price = [
+            187.60, 183.10, 183.20, 183.20, 183.20, 184.20, 185.00, 181.20, 181.50
+            ];
+            const data = [
+            '13.05.2024', '10.05.2024', '08.05.2024', '07.05.2024', '06.05.2024', '03.05.2024', '02.05.2024', '30.04.2024', '29.04.2024'
+            ];
+            let table = document.getElementById('kotir-table');
+            for (let i=0; i<price.length; i++){
+                let tr = document.createElement('tr');
+
+                let td1 = document.createElement('td');
+                td1.innerHTML = price[i];
+
+                let td2 = document.createElement('td');
+                td2.innerHTML = data[i];
+
+                let td3 = document.createElement('td');
+                if (i > 0){
+                    let razn = price[i] - price[i-1];
+                    razn = razn.toFixed(1)
+                    td3.innerHTML = razn;
+                }
+                else{
+                    td3.innerHTML = ' - ';
+                }
+                
+                tr.appendChild(td2);
+                tr.appendChild(td1);
+                tr.appendChild(td3);
+                table.appendChild(tr);
+            }
+
+            let sum = 0;
+            for (let i =0; i<price.length; i++){
+                sum+=price[i];
+            }
+
+            let sredn = sum/price.length
+            sredn = sredn.toFixed(2);
+            const min = Math.min.apply(Math, price)
+            const max = Math.max.apply(Math, price)
+
+            document.querySelector('.sredn').innerHTML = 'Среднее значение: ' + sredn;
+            document.querySelector('.min').innerHTML = 'Минимальное значение: ' + min;
+            document.querySelector('.max').innerHTML = 'Максимальное значение: ' + max;
+        }
+    </script>
+</head>
+<body>
+    <header>НГТУ, ФБ, Лабораторная работа 7</header>
+
+    <main>
+        <button onclick="KamAz()" class="but">Курс акций компании КамАЗ</button>
+        <table border="1" id="kotir-table"></table>
+        <p class="sredn"></p>
+        <p class="min"></p>
+        <p class="max"></p>
+    </main>
+
+    <footer>
+    </footer>
+</body>
+</html>
