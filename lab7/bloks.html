@@ -20,6 +20,29 @@
 
             document.querySelector('main').appendChild(newBlock);
         }
+        function addNewBlocks() {
+            let main = document.querySelector('main');
+            let blockCount = document.getElementById('blockCount').value; // Получаем количество блоков из поля ввода
+            main.innerHTML = ''; // Очищаем содержимое main перед добавлением новых блоков
+            for(let i = 0; i < blockCount; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'green';
+                newBlock.style.height = '40px';
+                newBlock.style.textAlign = 'left';
+                let expression = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2 * i**2}`;
+                newBlock.innerHTML = expression;
+                let width = (expression.length * 10) + 'px'; // Вычисляем ширину блока на основе длины выражения
+                newBlock.style.width = width;
+                newBlock.classList.add('block'); // Добавляем класс для стилизации блоков
+                
+                main.appendChild(newBlock);
+
+                // Добавляем отступ между блоками, кроме последнего
+                if (i < blockCount - 1) {
+                    newBlock.style.marginBottom = '10px';
+                }
+            }
+        }
     </script>
 </head>
 <body>
@@ -27,11 +50,12 @@
     </header>
 
     <main>
+        <input type="number" id="blockCount" value="10" min="1"> <!-- Поле для ввода числа блоков -->
         <button onclick="addNewBlock()">Добавить блок</button>
+        <button onclick="addNewBlocks()">Добавить блоки</button>
     </main>
 
     <footer>
     </footer>
 </body>
 </html>
-
