@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        const url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
+
+        fetch(url)
+        .then( function(response){
+            return response.json();
+        })
+        .then( function(json){
+            console.log(json);
+            document.querySelector('.w_8am').innerHTML = 'Температура воздуха в 8 часов утра составляет: ' + json.hourly.temperature_2m[8] + ' градусов';
+            document.querySelector('.w_12pm').innerHTML = 'Температура воздуха в 12 часов дня составляет: ' + json.hourly.temperature_2m[12] + ' градусов';
+            document.querySelector('.w_20pm').innerHTML = 'Температура воздуха в 8 часов вечера составляет: ' + json.hourly.temperature_2m[20] + ' градусов';
+        })
+    </script>
+    <style>
+        div{
+            margin: 10px auto;
+            border: 2px dotted green;
+            background-color: rgba(196, 250, 200, 0.676);
+            padding: 10px;
+            width: 700px;
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <h1 style="text-align: center;color: green;">Прогноз погоды в городе Новосибирск</h1>
+
+        <div>
+            <p class="w_8am"></p>
+            <p class="w_12pm"></p>
+            <p class="w_20pm"></p>
+        </div>
+
+    </main>
+
+    <footer>
+    </footer>
+</body>
+</html>
