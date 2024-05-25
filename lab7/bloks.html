@@ -74,6 +74,53 @@
                 main.appendChild(newCircle);
             }
         }
+        function addTransparentBlocks() {
+    let main = document.querySelector('main');
+    main.innerHTML = '';
+    for (let i = 1; i <= 10; i++) {
+        let newBlock = document.createElement('div');
+        newBlock.style.backgroundColor = 'blue';
+        newBlock.style.height = '40px';
+        newBlock.style.width = '80%';
+        newBlock.style.margin = '10px auto';
+        newBlock.style.border = '1px solid black';
+        newBlock.style.opacity = i / 10;
+        newBlock.style.color = 'white';
+        newBlock.style.display = 'flex';
+        newBlock.style.alignItems = 'center';
+        newBlock.style.justifyContent = 'center';
+        newBlock.innerText = `Блок ${i}`;
+
+        main.appendChild(newBlock);
+    }
+}
+
+function addColoredCircles() {
+    let main = document.querySelector('main');
+    let circleCount = document.getElementById('circleCount').value;
+    main.innerHTML = ''; // Очищаем содержимое основного контейнера
+
+    for (let i = circleCount; i > 0; i--) {
+        let newCircle = document.createElement('div');
+        newCircle.style.width = '50px';
+        newCircle.style.height = '50px';
+        newCircle.style.borderRadius = '50%';
+        newCircle.style.display = 'inline-flex';
+        newCircle.style.alignItems = 'center';
+        newCircle.style.justifyContent = 'center';
+        newCircle.style.marginRight = '5px';
+        newCircle.innerText = i; // Номер круга
+
+        // Определение цвета круга в зависимости от чётности
+        if (i % 2 === 0) {
+            newCircle.style.backgroundColor = 'green'; // Зелёный для чётных
+        } else {
+            newCircle.style.backgroundColor = 'red'; // Красный для нечётных
+        }
+
+        main.appendChild(newCircle);
+    }
+}
     </script>
 </head>
 <body>
@@ -86,7 +133,9 @@
         <button onclick="addNewBlocks()">Добавить блоки</button>
         <button onclick="add20_50()">20=>50</button>
         <button onclick="add10_80()">10=>80</button> 
-    </main>
+        <button onclick="addTransparentBlocks()">Полупрозрачные блоки</button>
+        <input type="number" id="circleCount" value="10" min="1">
+        <button onclick="addColoredCircles()">Цветные круги</button>
     </main>
 
     <footer>
