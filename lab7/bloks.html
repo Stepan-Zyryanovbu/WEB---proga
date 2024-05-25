@@ -22,8 +22,8 @@
         }
         function addNewBlocks() {
             let main = document.querySelector('main');
-            let blockCount = document.getElementById('blockCount').value; // Получаем количество блоков из поля ввода
-            main.innerHTML = ''; // Очищаем содержимое main перед добавлением новых блоков
+            let blockCount = document.getElementById('blockCount').value; 
+            main.innerHTML = ''; 
             for(let i = 0; i < blockCount; i++) {
                 let newBlock = document.createElement('div');
                 newBlock.style.backgroundColor = 'green';
@@ -31,16 +31,28 @@
                 newBlock.style.textAlign = 'left';
                 let expression = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2 * i**2}`;
                 newBlock.innerHTML = expression;
-                let width = (expression.length * 10) + 'px'; // Вычисляем ширину блока на основе длины выражения
+                let width = (expression.length * 10) + 'px'; 
                 newBlock.style.width = width;
-                newBlock.classList.add('block'); // Добавляем класс для стилизации блоков
+                newBlock.classList.add('block'); 
                 
                 main.appendChild(newBlock);
 
-                // Добавляем отступ между блоками, кроме последнего
+                
                 if (i < blockCount - 1) {
                     newBlock.style.marginBottom = '10px';
                 }
+            }
+        }
+        function add20_50() {
+            let main = document.querySelector('main');
+            for(let i = 20; i<=50; i+=2.5) {
+                let newBlock = document.createElement('div');
+                newBlock.style.width = '40px';
+                newBlock.style.border = '1px solid';
+
+                newBlock.innerHTML = `${i}`;
+
+                main.appendChild(newBlock);
             }
         }
     </script>
@@ -50,7 +62,7 @@
     </header>
 
     <main>
-        <input type="number" id="blockCount" value="10" min="1"> <!-- Поле для ввода числа блоков -->
+        <input type="number" id="blockCount" value="10" min="1">
         <button onclick="addNewBlock()">Добавить блок</button>
         <button onclick="addNewBlocks()">Добавить блоки</button>
     </main>
